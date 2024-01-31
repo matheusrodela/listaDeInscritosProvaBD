@@ -81,7 +81,7 @@ const MainCard = () => {
           }}
         >
           <Typography variant="h5" fontWeight={700}>
-            Lista de presença - {formattedDate}
+            Lista de presença: {formattedDate}
           </Typography>
           {renderComponent(getExamLocation(value))}
         </Box>
