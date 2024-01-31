@@ -7,10 +7,12 @@ const theme = createTheme({
   },
 });
 
+import MainComponent from "./mainComponent";
+
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <h1>hi</h1>
+      <MainComponent />
     </ThemeProvider>
   );
 }
