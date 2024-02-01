@@ -114,7 +114,7 @@ const CardPresenca = ({ examLocation }: CardPresecaProps) => {
       flexDirection={"column"}
       sx={{
         minHeight: "45vh",
-        px: 5,
+        px: 1,
         py: 3,
       }}
     >
