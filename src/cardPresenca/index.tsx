@@ -108,34 +108,38 @@ const CardPresenca = ({ examLocation }: CardPresecaProps) => {
     );
   }
 
+  const hasCandidates = Object.keys(candidatesByHour).length > 0;
+
   return (
     <Box
-      display={"flex"}
-      flexDirection={"column"}
-      sx={{
-        minHeight: "45vh",
-        px: 1,
-        py: 3,
-      }}
+      display="flex"
+      flexDirection="column"
+      sx={{ minHeight: "45vh", px: 1, py: 3 }}
     >
-      {Object.entries(candidatesByHour)
-        .sort((a, b) => a[0].localeCompare(b[0]))
-        .map(([hour, candidates], index) => (
-          <TableContainer key={index} sx={{ my: 1 }}>
-            <Typography variant="h6" sx={{ my: 2 }}>
-              {formatHour(hour)}
-            </Typography>
-            <Table>
-              <TableBody>
-                {candidates.map((name, candidateIndex) => (
-                  <TableRow key={candidateIndex}>
-                    <TableCell>{name}</TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </TableContainer>
-        ))}
+      {!hasCandidates ? (
+        <Typography variant="h6" sx={{ textAlign: "center", my: 2 }}>
+          Sem agendamentos neste local hoje.
+        </Typography>
+      ) : (
+        Object.entries(candidatesByHour)
+          .sort((a, b) => a[0].localeCompare(b[0]))
+          .map(([hour, candidates], index) => (
+            <TableContainer key={index} sx={{ my: 1 }}>
+              <Typography variant="h6" sx={{ my: 2 }}>
+                {formatHour(hour)}
+              </Typography>
+              <Table>
+                <TableBody>
+                  {candidates.map((name, candidateIndex) => (
+                    <TableRow key={candidateIndex}>
+                      <TableCell>{name}</TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </TableContainer>
+          ))
+      )}
     </Box>
   );
 };
