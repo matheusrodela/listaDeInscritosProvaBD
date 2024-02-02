@@ -120,7 +120,7 @@ const CardPresenca = ({ examLocation }: CardPresecaProps) => {
         <Typography
           variant="h6"
           fontWeight={500}
-          color={"error.main"}
+          color={"#8F8F8F"}
           sx={{ textAlign: "center", my: 2 }}
         >
           Sem agendamentos neste local hoje.
