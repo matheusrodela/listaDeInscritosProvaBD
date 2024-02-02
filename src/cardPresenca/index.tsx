@@ -117,7 +117,12 @@ const CardPresenca = ({ examLocation }: CardPresecaProps) => {
       sx={{ minHeight: "45vh", px: 1, py: 3 }}
     >
       {!hasCandidates ? (
-        <Typography variant="h6" sx={{ textAlign: "center", my: 2 }}>
+        <Typography
+          variant="h6"
+          fontWeight={500}
+          color={"error.main"}
+          sx={{ textAlign: "center", my: 2 }}
+        >
           Sem agendamentos neste local hoje.
         </Typography>
       ) : (
